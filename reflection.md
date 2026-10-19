@@ -14,14 +14,14 @@ The three main actions in PawPal+ are:
 
 My initial UML design includes four classes: Owner, Pet, Task, and Scheduler.
 
-The Owner class stores the owner's information and pets. The Pet class stores pet information and tasks. The Task class stores duration and priority. The Scheduler class creates a daily schedule.
+- The Owner class stores the owner's information and pets. The Pet class stores pet information and tasks. The Task class stores duration and priority. The Scheduler class creates a daily schedule.
 
 **b. Design changes**
 
 - Did your design change during implementation?
 - If yes, describe at least one change and why you made it.
 
-My initial design has not changed yet. After reviewing the UML diagram and Python skeleton with AI, I found that the class relationships are correct. AI suggested making the time units and task priority values consistent. I will consider these improvements during implementation.
+- My initial design has not changed yet. After reviewing the UML diagram and Python skeleton with AI, I found that the class relationships are correct. AI suggested making the time units and task priority values consistent. I will consider these improvements during implementation.
 
 
 ---
@@ -37,6 +37,8 @@ My initial design has not changed yet. After reviewing the UML diagram and Pytho
 
 - Describe one tradeoff your scheduler makes.
 - Why is that tradeoff reasonable for this scenario?
+
+- I decided to keep the current conflict detection method because it is easier to understand. It checks each pair of tasks to see if their scheduled times overlap. Copilot suggested sorting the tasks first to improve performance, but that would make the code more complicated. Since PawPal+ is a small pet care scheduling app, I think keeping the code simple and readable is more important than optimizing its performance right now.
 
 ---
 
@@ -66,10 +68,14 @@ My initial design has not changed yet. After reviewing the UML diagram and Pytho
 - What behaviors did you test?
 - Why were these tests important?
 
+- I tested adding pets and tasks, marking tasks as completed, sorting tasks by time, filtering tasks, recurring daily and weekly tasks, and detecting scheduling conflicts. These tests were important because they helped verify that the scheduling system worked correctly. I also ran pytest, and both automated tests passed.
+
 **b. Confidence**
 
 - How confident are you that your scheduler works correctly?
 - What edge cases would you test next if you had more time?
+
+- I feel confident that my scheduler works because I tested its main features and both automated tests passed. However, I know there could still be problems in certain situations. If I had more time, I would test tasks with invalid times, multiple overlapping tasks, and recurring tasks across different dates to make sure everything works correctly.
 
 ---
 
@@ -79,10 +85,16 @@ My initial design has not changed yet. After reviewing the UML diagram and Pytho
 
 - What part of this project are you most satisfied with?
 
+- I am most satisfied with getting the scheduling system to work. I was able to add pets and tasks, organize schedules, and detect conflicts. It was great seeing the different parts of my project work together.
+
 **b. What you would improve**
 
 - If you had another iteration, what would you improve or redesign?
 
+-If I had more time, I would improve the user interface and make the scheduling system easier to use. I would also add more tests and improve how recurring tasks are managed.
+
 **c. Key takeaway**
 
 - What is one important thing you learned about designing systems or working with AI on this project?
+
+- One important thing I learned is that AI can help with coding, but I still need to understand and test the results. Breaking the project into smaller steps made it easier to build and troubleshoot.
