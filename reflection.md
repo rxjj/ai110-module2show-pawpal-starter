@@ -5,7 +5,12 @@
 **a. Initial design**
 
 - Briefly describe your initial UML design.
-- What classes did you include, and what responsibilities did you assign to each?
+- What classes did you include, and what responsibilities did you assign to each? 
+
+The three main actions in PawPal+ are:
+1. Add pet information, such as name and species.
+2. Add care tasks, including duration and priority.
+3. Generate a daily schedule based on task priority and available time.
 
 **b. Design changes**
 
