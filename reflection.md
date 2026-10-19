@@ -47,10 +47,15 @@ My initial design has not changed yet. After reviewing the UML diagram and Pytho
 - How did you use AI tools during this project (for example: design brainstorming, debugging, refactoring)?
 - What kinds of prompts or questions were most helpful?
 
+- I used GitHub Copilot to help design my UML diagram and implement the four Python classes: Owner, Pet, Task, and Scheduler. AI also helped me create a demo script, write tests, and add docstrings. The most helpful prompts were specific instructions explaining what each class or method should do. This made it easier to build the project step by step.
+
 **b. Judgment and verification**
 
 - Describe one moment where you did not accept an AI suggestion as-is.
 - How did you evaluate or verify what the AI suggested?
+
+- I reviewed GitHub Copilot's suggestions before accepting them. Copilot suggested making the time units and task priorities consistent. I decided to keep the implementation simple and consider those improvements later. I also checked that the Scheduler collected tasks from all pets instead of just one. To verify everything worked, I ran python main.py and checked the daily schedule. I also ran python -m pytest, and both tests passed.
+
 
 ---
 
