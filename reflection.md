@@ -12,10 +12,17 @@ The three main actions in PawPal+ are:
 2. Add care tasks, including duration and priority.
 3. Generate a daily schedule based on task priority and available time.
 
+My initial UML design includes four classes: Owner, Pet, Task, and Scheduler.
+
+The Owner class stores the owner's information and pets. The Pet class stores pet information and tasks. The Task class stores duration and priority. The Scheduler class creates a daily schedule.
+
 **b. Design changes**
 
 - Did your design change during implementation?
 - If yes, describe at least one change and why you made it.
+
+My initial design has not changed yet. After reviewing the UML diagram and Python skeleton with AI, I found that the class relationships are correct. AI suggested making the time units and task priority values consistent. I will consider these improvements during implementation.
+
 
 ---
 
