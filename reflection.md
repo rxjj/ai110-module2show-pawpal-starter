@@ -21,7 +21,7 @@ My initial UML design includes four classes: Owner, Pet, Task, and Scheduler.
 - Did your design change during implementation?
 - If yes, describe at least one change and why you made it.
 
-- My initial design has not changed yet. After reviewing the UML diagram and Python skeleton with AI, I found that the class relationships are correct. AI suggested making the time units and task priority values consistent. I will consider these improvements during implementation.
+- My design grew during implementation. I kept the four main classes, but added more details to support the features I built. Tasks now include a completion status, frequency, optional start time, and optional due date. The Pet class can complete daily or weekly tasks and create their next occurrence. The Scheduler can sort tasks by start time, filter by pet or completion status, find scheduling conflicts, and generate and explain a schedule. I also updated my UML diagram to match these classes, methods, and relationships.
 
 
 ---
@@ -32,6 +32,8 @@ My initial UML design includes four classes: Owner, Pet, Task, and Scheduler.
 
 - What constraints does your scheduler consider (for example: time, priority, preferences)?
 - How did you decide which constraints mattered most?
+
+- The scheduler uses the available minutes as a limit. It considers valid, incomplete tasks, looks at higher-priority tasks first, and considers shorter tasks first when priorities are equal. It adds a task only if it fits in the remaining time. Completed or invalid tasks are left out. Start times are used for sorting and conflict detection, but not to place tasks into time slots in the generated schedule. I focused on available time and priority because they determine which care tasks can fit into the day's plan.
 
 **b. Tradeoffs**
 
@@ -49,14 +51,14 @@ My initial UML design includes four classes: Owner, Pet, Task, and Scheduler.
 - How did you use AI tools during this project (for example: design brainstorming, debugging, refactoring)?
 - What kinds of prompts or questions were most helpful?
 
-- I used GitHub Copilot to help design my UML diagram and implement the four Python classes: Owner, Pet, Task, and Scheduler. AI also helped me create a demo script, write tests, and add docstrings. The most helpful prompts were specific instructions explaining what each class or method should do. This made it easier to build the project step by step.
+- I used GitHub Copilot to help design my UML diagram and implement the four Python classes: Owner, Pet, Task, and Scheduler. It also helped with the demo script, tests, project documentation, and connecting the scheduler to the Streamlit interface. The most helpful prompts were specific instructions explaining what each class or method should do. This made it easier to build the project step by step.
 
 **b. Judgment and verification**
 
 - Describe one moment where you did not accept an AI suggestion as-is.
 - How did you evaluate or verify what the AI suggested?
 
-- I reviewed GitHub Copilot's suggestions before accepting them. Copilot suggested making the time units and task priorities consistent. I decided to keep the implementation simple and consider those improvements later. I also checked that the Scheduler collected tasks from all pets instead of just one. To verify everything worked, I ran python main.py and checked the daily schedule. I also ran python -m pytest, and both tests passed.
+- I reviewed GitHub Copilot's suggestions instead of accepting them automatically. For example, I kept conflict detection as a simple pair-by-pair check rather than adding a more complicated optimization. I checked the code against the project requirements and verified that the Scheduler collects tasks from all pets. I ran the Streamlit app and confirmed it started successfully, ran `python3 main.py` to inspect the demo output, and ran `python3 -m pytest`. All 9 automated tests passed.
 
 
 ---
@@ -68,14 +70,14 @@ My initial UML design includes four classes: Owner, Pet, Task, and Scheduler.
 - What behaviors did you test?
 - Why were these tests important?
 
-- I tested adding pets and tasks, marking tasks as completed, sorting tasks by time, filtering tasks, recurring daily and weekly tasks, and detecting scheduling conflicts. These tests were important because they helped verify that the scheduling system worked correctly. I also ran pytest, and both automated tests passed.
+- I tested adding a task, marking a task complete, sorting tasks by time, creating daily and weekly recurring tasks, preventing a duplicate recurring task, and detecting overlapping tasks while ignoring non-overlaps. These tests are important because they check the main task and scheduling behaviors. I ran `python3 -m pytest`, and all 9 automated tests passed. Filtering and schedule generation are implemented, but are not directly covered by the current automated tests.
 
 **b. Confidence**
 
 - How confident are you that your scheduler works correctly?
 - What edge cases would you test next if you had more time?
 
-- I feel confident that my scheduler works because I tested its main features and both automated tests passed. However, I know there could still be problems in certain situations. If I had more time, I would test tasks with invalid times, multiple overlapping tasks, and recurring tasks across different dates to make sure everything works correctly.
+- I am 4 out of 5 confident that my scheduler works. The app started successfully, and the 9 automated tests passed for the behaviors they cover. Additional edge cases could still be tested, such as invalid times, several tasks overlapping at once, and more combinations of task durations and available time.
 
 ---
 
@@ -91,7 +93,7 @@ My initial UML design includes four classes: Owner, Pet, Task, and Scheduler.
 
 - If you had another iteration, what would you improve or redesign?
 
--If I had more time, I would improve the user interface and make the scheduling system easier to use. I would also add more tests and improve how recurring tasks are managed.
+- If I had more time, I would improve the user interface and make the scheduling system easier to use. I would also add more tests and improve how recurring tasks are managed.
 
 **c. Key takeaway**
 
