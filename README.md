@@ -66,21 +66,23 @@ Total: 65 of 65 minutes
 #   ...
 ```
 
-## 🧪 Testing PawPal+
+## Testing PawPal+
 
 ```bash
-# Run the full test suite:
-pytest
-
-# Run with coverage:
-pytest --cov
+python3 -m pytest
 ```
 
-Sample test output:
+The 9 automated tests check that tasks can be completed and added, tasks are
+sorted by start time, daily and weekly tasks recur correctly, completing a
+recurring task twice does not create another copy, and overlapping schedules
+are detected while non-overlapping tasks are ignored.
 
 ```
-# Paste your pytest output here
+9 passed in 0.06s
 ```
+
+**Confidence: ⭐⭐⭐⭐☆ (4 out of 5 stars).** The tests pass and cover important
+behaviors, but more edge cases could still be tested.
 
 ## 📐 Smarter Scheduling
 
